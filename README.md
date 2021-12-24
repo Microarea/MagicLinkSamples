@@ -16,4 +16,4 @@ In order to create this sample application you will need:
 ## Step 1: Creating the Sample Application
 
 ## Step 2: Connecting to Mago4 through LoginManager
-![Screenshot](screenshots/ServiceReference1.png)
+![Screenshot](/screenshots/ServiceReference1.png)
