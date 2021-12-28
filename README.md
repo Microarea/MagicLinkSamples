@@ -28,7 +28,7 @@ The example is divided basically in three parts:
 1. setting the desired fiscal company by invoking the specific web method
 1. posting the data
 
-We imagine we want to provide a form in which the user select the fiscal company to target some transactions; then, pressing a button, having them posted to the right fiscal company.
+We imagine we want to provide a form in which the user selects the fiscal company target for some transactions; then, pressing a button, having them posted to the right fiscal company.
 
 For this purpose we have to include the following controls to the form:
 
