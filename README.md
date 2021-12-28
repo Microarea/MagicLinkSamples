@@ -3,7 +3,7 @@ The CGM module allows to manage multiple fiscal companies in the same Mago subsc
 This imply that some of the data are shared among companies (defined as "public" data), and some other are specific of the individual company ("private" data).  
 To learn more about the CGM features, see: [Guide to use Corporate Group Management](http://www.microarea.it/MicroareaHelpCenter/Walkthrough-M4-CGM.ashx) (requires authentication).
 
-When transferring data via MagicLink it is then needed to take care about the fiscal company targeted by the transfer, especially when dealing with "private" data, as most of the documents are (i.e.: sales document, journal entries).
+When transferring data via MagicLink, it is then needed to take care about the fiscal company targeted by the transfer, especially when dealing with "private" data, as most of the documents are (i.e.: sales document, journal entries).
 
 This repository contains a sample about using the CGM via MagicLink, and below there is a step-by-step guide to create it.
 
@@ -21,9 +21,9 @@ _Note: all the above links require authentication_.
 ## Step 1: Creating the Sample Application
 We will create a very sample application whose purpose is posting an accounting transaction to a specific fiscal company, among those managed in Mago.
 
-Open Visual Studio 2019 and crea a new Windows Form C# project, name it as you prefer (i.e.: MagicLinkCGM).
+Open Visual Studio 2019 and create a new Windows Form C# project, naming it as you prefer (i.e.: MagicLinkCGM).
 
-The example is divide basically in three parts:
+The example is divided basically in three parts:
 1. logging into Mago4 and creating the TBLoader instance (Mago4 back-end service)
 1. setting the desired fiscal company by invoking the specific web method
 1. posting the data
@@ -96,14 +96,14 @@ string companyName = ""; // name of the company (this is the company owning of t
 You may hard-code these values in your source code, or collect them from the UI.
 
 Please note that you have to declare ``authenticationToken`` as string variable of your form class.  
-The ``askingProcess`` parameter (here shown as ``"Your code here"`` placeholder) has to be replaced with the Producer Key assigned to you. The Producer Key univokely identify your company as the producer of your solution among all the Microarea partner. It is mainly used for license authentication. To learn more, please see: [What is the Producer Key?](http://www.microarea.it/MicroareaHelpCenter/Misc-Extensions-TBMagicPlatform-WhatIsTheProducerKey.ashx) (requires authentication).
+The ``askingProcess`` parameter (here shown as ``"Your code here"`` placeholder) has to be replaced with the Producer Key assigned to you. The Producer Key univokely identify your company as the producer of your solution among all the Mago partner. It is mainly used for license authentication. To learn more, please see: [What is the Producer Key?](http://www.microarea.it/MicroareaHelpCenter/Misc-Extensions-TBMagicPlatform-WhatIsTheProducerKey.ashx) (requires authentication).
 
 As you can see, the login method call (``LoginCompact``) returns a code if not succesfull. The error code explains the reasons of the failure. To see a complete list of error codes, please see: [MagicLink Error Codes](http://www.microarea.it/MicroareaHelpCenter/RefGuide-Extensions-TBMagicPlatform-MagicLinkErrorCodes.ashx) (requires authentication).  
 The Web Service call may also cause a number of exceptions, which are catched by the ``try .. catch`` block. Such exceptions may occur due to communication infrastructure problems, please refer to Microsoft documentation for details about them.
 
 To complete our implementation, we also need to ensure the program will log off from ``LoginManager`` system, to avoid the CAL be set as in use by a process that is no more active.  
-While the total number of available CALs for MagicLink is not limited in a Mago4 licensed copy, it is a good practice disposing them when no more useful.
-For doing this, we will add an event hanlder to the ``FormClosing`` event of the form (from the design view, in the "Properties" pane, switch to the event list and double click on the ``FormClosing`` event, this automatically declare and creates an event handler).  
+While the total number of available CALs for MagicLink is not limited in a Mago4 licensed copy, it is a good practice disposing them when no more useful.  
+For doing this, we will add an event handler to the ``FormClosing`` event of the form.  
 In its body, write the following code lines:
 ```C#
 if (authenticationToken != string.Empty)
@@ -119,7 +119,7 @@ if (authenticationToken != string.Empty)
 ## Step 3: Create a TBLoader Instance
 To invoke the web method that set the fiscal company, you must load a Mago4 backend, by starting a ``TbLoader`` process. This is done through the ``TBServices`` Web Service.
 
-Now in order to make a call to the ``TBServices`` web service we need to add a web reference to it in our application.
+Now in order to make a call to the ``TBServices`` web service we need to add a reference to it in our application.
 
 To do it, follow the same procedure described in Step 2, the URL of the service is:
 ```
@@ -182,6 +182,7 @@ Insert the following URL:
 http://localhost:[port number]/Framework.TbGenlibUI.TbGenlibUI
 ```
 (change ``localhost`` to your Mago server; please note that the firewall, if any, must have this port opened).  
+The ``port number`` is those returned by the call to the ``CreateTB`` method.  
 Click the "GO" button, and insert the Web reference name (i.e.: ``TBGenlibUI``).
 
 _IMPORTANT NOTE: Please be sure to insert a "Web Reference"" and not a "Service Reference", otherwise the suggested code will not work._
@@ -211,10 +212,43 @@ catch (Exception exc)
     MessageBox.Show(string.Format("Set Fiscal Company: Exception occurred: {0}", exc.Message));
 }
 ```
-The fiscal compmay id is an ``int`` value, ``0`` being normally the HQ.
+The fiscal company id is an ``int`` value, ``0`` being normally the HQ.
 
 ## Step 5: Post Some Data to the Selected Fiscal Company
 The sole purpose of this step is to check that any subsequent call to the MagicLink's basic ``SetData`` or ``GetData`` methods will target the selected fiscal company.
 
+In this example we will post an accounting transaction to a specific fiscal company (i.e.: "1") by sending a sample XML via ``SetData``.  
+You find the sample XML in the root of the sample, or you can choose one of your own.
+
+Double-click the "SetData" button to create the handler and insert the following code:
+```C#
+using (MagoTBServices.TbServicesSoapClient aTbService = new MagoTBServices.TbServicesSoapClient())
+{
+    aTbService.Endpoint.Address = new System.ServiceModel.EndpointAddress(string.Format("http://{0}/{1}/TBServices/TBServices.asmx", server, instance));
+
+    // insert the right path to your sample file, or let the user choose it in the UI
+    string aXMLData = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\sample.xml"));
+    string aResult = string.Empty;
+
+    try
+    {
+        if (aTbService.SetData(authenticationToken, aXMLData, System.DateTime.Now, 0, false, out aResult))
+            MessageBox.Show("Posted!");
+        else
+            MessageBox.Show("Not posted, some error occurred!");
+    }
+    catch (Exception tbExc)
+    {
+        MessageBox.Show(string.Format("Exception occurred: {0}", tbExc.Message));
+    }
+}
+```
+## Testing the result
+Now your program is ready to be used, compile and run it.  
+To test it:
+* click on the "connect" button to connect to Mago4 and start the TBLoader process
+* set a value for the fiscal company (i.e.: "1") and click on the "Set" button
+* click on the "SetData" to post data to Mago4
+* open Mago4, switch to the selected fiscal company and check that the transaction was correctly posted to it
 
 
