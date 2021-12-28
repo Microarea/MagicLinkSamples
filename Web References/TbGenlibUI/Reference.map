@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd9" filename="Framework.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd11" filename="Framework0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd3" filename="Framework1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?wsdl" filename="TbGenlibUI.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd1" filename="Framework2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd6" filename="Framework3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd7" filename="Framework4.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd4" filename="Framework5.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?disco" filename="Framework.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd8" filename="Framework6.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd10" filename="Framework7.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd12" filename="Framework8.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd2" filename="Framework9.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd0" filename="Framework10.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/Framework.TbGenlibUI.TbGenlibUI?xsd=xsd5" filename="Framework11.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

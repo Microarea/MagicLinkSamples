@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:Microarea.Web.Services.SetFiscalCompany" elementFormDefault="qualified" targetNamespace="urn:Microarea.Web.Services.SetFiscalCompany" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="aCompanyId" type="xs:int" />
+  <xs:element name="aStoreCode" nillable="true" type="xs:string" />
+</xs:schema>

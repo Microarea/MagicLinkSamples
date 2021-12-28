@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2492AEA0-24D2-472A-BAC6-0627281E4290}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MagicLinkCGM</RootNamespace>
+    <AssemblyName>MagicLinkCGM</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\MagoEasyLookService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MagoLoginManager\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MagoTBServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web References\TbGenlibUI\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Connected Services\MagoEasyLookService\EasyLookService.wsdl" />
+    <None Include="Connected Services\MagoEasyLookService\MagicLinkCGM.MagoEasyLookService.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoEasyLookService\MagicLinkCGM.MagoEasyLookService.PdfExecuteReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoEasyLookService\MagicLinkCGM.MagoEasyLookService.XmlExecuteReportEIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoEasyLookService\MagicLinkCGM.MagoEasyLookService.XmlExecuteReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoEasyLookService\MagicLinkCGM.MagoEasyLookService.XmlExecuteReportWithNotValidFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoEasyLookService\MagicLinkCGM.MagoEasyLookService.XmlGetParametersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\LoginManager.wsdl" />
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.ActivationState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.Advertisement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.DataSynchroDatabaseInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.DBNetworkType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.DmsDatabaseInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.DownloadPdbResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetAuthenticationInformationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetAuthenticationNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetCalNumber2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetCalNumber3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetCalNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetCompanyLanguageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetConfigurationStreamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetInstallationVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.GetLoginInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.IsFloatingUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.IsValidDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.IsWebUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.Login2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.LoginCompactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.LoginSlotType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.LoginViaInfinityToken2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.ModuleNameInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.ProxySettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.SendErrorFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.SerialNumberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.SetCurrentComponentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.SetDefaultSchemaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.TbSenderDatabaseInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\MagicLinkCGM.MagoLoginManager.ValidateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.CloseTBResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.CreateTBExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.CreateTBResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.CreateTBTaggedExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.CreateTBTaggedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.DiagnosticSimpleItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.ExistDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetCachedFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetDataTaggedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetDiagnosticItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetDocumentSchemaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetEnumsXmlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetFilePathFromNamespaceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetFileStreamByFileNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetFileStreamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetInstalledCulturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetReportSchemaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetServerPrinterNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetTbLoaderInstantiatedListXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetXMLEnumResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetXMLHotLinkDefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.GetXMLHotLinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.IsTbLoaderInstantiatedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.KillProcessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.KillTaggedProcessesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.KillThreadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.ReleaseTBResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.ResolvePathIMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.ResolvePathResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.RunFunctionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.SetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.SetDataTaggedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.StopProcessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.StopThreadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.WCFBinding.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.XmlGetParametersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\MagicLinkCGM.MagoTBServices.XmlGetParametersTaggedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\TbServices.wsdl" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Web References\TbGenlibUI\Framework.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Framework9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TbGenlibUI\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TbGenlibUI\TbGenlibUI.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MagoEasyLookService\" />
+    <WCFMetadataStorage Include="Connected Services\MagoLoginManager\" />
+    <WCFMetadataStorage Include="Connected Services\MagoTBServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoLoginManager\LoginManager.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoLoginManager\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoLoginManager\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoLoginManager\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoTBServices\TbServices.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoTBServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoTBServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoTBServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:10050/Framework.TbGenlibUI.TbGenlibUI">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TbGenlibUI\</RelPath>
+      <UpdateFromURL>http://localhost:10050/Framework.TbGenlibUI.TbGenlibUI</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MagicLinkCGM_TbGenlibUI_TbGenlibUI</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\TbGenlibUI\Framework.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoEasyLookService\EasyLookService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoEasyLookService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoEasyLookService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoEasyLookService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

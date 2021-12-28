@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="XmlExecuteReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="impersonatedUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlExecuteReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlExecuteReportResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="XmlExecuteReportWithNotValidFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="impersonatedUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlExecuteReportWithNotValidFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlExecuteReportWithNotValidFieldsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlExecuteReportEI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="impersonatedUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlExecuteReportEIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlExecuteReportEIResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PdfExecuteReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="impersonatedUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="diagnostic" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PdfExecuteReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PdfExecuteReportResult" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="diagnostic" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlGetParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="impersonatedUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlGetParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlGetParametersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="XmlExecuteReportSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlExecuteReport" />
+  </wsdl:message>
+  <wsdl:message name="XmlExecuteReportSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlExecuteReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlExecuteReportWithNotValidFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlExecuteReportWithNotValidFields" />
+  </wsdl:message>
+  <wsdl:message name="XmlExecuteReportWithNotValidFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlExecuteReportWithNotValidFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlExecuteReportEISoapIn">
+    <wsdl:part name="parameters" element="tns:XmlExecuteReportEI" />
+  </wsdl:message>
+  <wsdl:message name="XmlExecuteReportEISoapOut">
+    <wsdl:part name="parameters" element="tns:XmlExecuteReportEIResponse" />
+  </wsdl:message>
+  <wsdl:message name="PdfExecuteReportSoapIn">
+    <wsdl:part name="parameters" element="tns:PdfExecuteReport" />
+  </wsdl:message>
+  <wsdl:message name="PdfExecuteReportSoapOut">
+    <wsdl:part name="parameters" element="tns:PdfExecuteReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlGetParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlGetParameters" />
+  </wsdl:message>
+  <wsdl:message name="XmlGetParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlGetParametersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EasyLookServiceSoap">
+    <wsdl:operation name="XmlExecuteReport">
+      <wsdl:input message="tns:XmlExecuteReportSoapIn" />
+      <wsdl:output message="tns:XmlExecuteReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlExecuteReportWithNotValidFields">
+      <wsdl:input message="tns:XmlExecuteReportWithNotValidFieldsSoapIn" />
+      <wsdl:output message="tns:XmlExecuteReportWithNotValidFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlExecuteReportEI">
+      <wsdl:input message="tns:XmlExecuteReportEISoapIn" />
+      <wsdl:output message="tns:XmlExecuteReportEISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PdfExecuteReport">
+      <wsdl:input message="tns:PdfExecuteReportSoapIn" />
+      <wsdl:output message="tns:PdfExecuteReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParameters">
+      <wsdl:input message="tns:XmlGetParametersSoapIn" />
+      <wsdl:output message="tns:XmlGetParametersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EasyLookServiceSoap" type="tns:EasyLookServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="XmlExecuteReport">
+      <soap:operation soapAction="http://tempuri.org/XmlExecuteReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlExecuteReportWithNotValidFields">
+      <soap:operation soapAction="http://tempuri.org/XmlExecuteReportWithNotValidFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlExecuteReportEI">
+      <soap:operation soapAction="http://tempuri.org/XmlExecuteReportEI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PdfExecuteReport">
+      <soap:operation soapAction="http://tempuri.org/PdfExecuteReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParameters">
+      <soap:operation soapAction="http://tempuri.org/XmlGetParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EasyLookServiceSoap12" type="tns:EasyLookServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="XmlExecuteReport">
+      <soap12:operation soapAction="http://tempuri.org/XmlExecuteReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlExecuteReportWithNotValidFields">
+      <soap12:operation soapAction="http://tempuri.org/XmlExecuteReportWithNotValidFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlExecuteReportEI">
+      <soap12:operation soapAction="http://tempuri.org/XmlExecuteReportEI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PdfExecuteReport">
+      <soap12:operation soapAction="http://tempuri.org/PdfExecuteReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParameters">
+      <soap12:operation soapAction="http://tempuri.org/XmlGetParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EasyLookService">
+    <wsdl:port name="EasyLookServiceSoap" binding="tns:EasyLookServiceSoap">
+      <soap:address location="http://localhost/Mago4-3-4-0/EasyLook/EasyLookService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EasyLookServiceSoap12" binding="tns:EasyLookServiceSoap12">
+      <soap12:address location="http://localhost/Mago4-3-4-0/EasyLook/EasyLookService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
