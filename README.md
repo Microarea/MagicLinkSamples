@@ -126,7 +126,7 @@ http://localhost/Mago4/TbServices/TbServices.asmx
 ```
 Again, you may need to change the values for ``localhost`` and ``Mago4``.
 
-To start a ``TBLoader`` perocess on the server in silent mode we will use the method ``CreateTB`` of the ``TBServices`` service.  
+To start a ``TBLoader`` process on the server in silent mode we will use the method ``CreateTB`` of the ``TBServices`` service.  
 Just add the following code to the handler of the "Connect" button:
 ```C#
 using (MagoTBServices.TbServicesSoapClient aTbService = new MagoTBServices.TbServicesSoapClient())
