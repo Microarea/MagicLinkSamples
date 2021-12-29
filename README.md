@@ -19,7 +19,7 @@ If you are working on a licensed copy of Mago4, you have to check for some prere
 _Note: all the above links require authentication_.
 
 ## Step 1: Creating the Sample Application
-We will create a very sample application whose purpose is posting an accounting transaction to a specific fiscal company, among those managed in Mago.
+We will create a very simple application whose purpose is posting an accounting transaction to a specific fiscal company, among those managed in Mago.
 
 Open Visual Studio 2019 and create a new Windows Form C# project, naming it as you prefer (i.e.: MagicLinkCGM).
 
