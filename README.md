@@ -176,12 +176,16 @@ As you run your application and logged in for the previous step, the ``TBLoader`
 For troubles in starting the TBLoader, see [Troubleshooting](http://www.microarea.it/MicroareaHelpCenter/RefGuide-Extensions-TBMagicPlatform-Troubleshooting.ashx) (requires authentication).
 
 Right-click on your Visual Studio 2019 solution, select "Add > Service Reference", "Advanced...", "Add Web Reference".  
+
 Insert the following URL:
 ```
 http://localhost:[port number]/Framework.TbGenlibUI.TbGenlibUI
 ```
 (change ``localhost`` to your Mago server; please note that the firewall, if any, must have this port opened).  
 The ``port number`` is those returned by the call to the ``CreateTB`` method.  
+
+![Screenshot](/screenshots/ServiceReference2.PNG)
+
 Click the "GO" button, and insert the web reference name (i.e.: ``TBGenlibUI``).
 
 _IMPORTANT NOTE: Please be sure to insert a "Web Reference"" and not a "Service Reference", otherwise the suggested code will not work._
