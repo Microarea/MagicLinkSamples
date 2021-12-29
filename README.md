@@ -184,7 +184,7 @@ http://localhost:[port number]/Framework.TbGenlibUI.TbGenlibUI
 (change ``localhost`` to your Mago server; please note that the firewall, if any, must have this port opened).  
 The ``port number`` is those returned by the call to the ``CreateTB`` method.  
 
-![Screenshot](/screenshots/ServiceReference2.PNG)
+![Screenshot](/screenshots/ServiceReference2.png)
 
 Click the "GO" button, and insert the web reference name (i.e.: ``TBGenlibUI``).
 
