@@ -9,7 +9,7 @@ Below are the comments for the most significant code fragments.
 
 ## Prerequisites
 
-In order to create this sample application we will need:
+In order to use this sample application we will need:
 * Visual Studio 2019 (or above)
 * a working Mago4 with a sample company data set
 
