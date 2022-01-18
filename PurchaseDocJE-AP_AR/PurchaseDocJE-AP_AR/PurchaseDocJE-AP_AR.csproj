@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74FCA59E-0480-4F31-962A-FC15E116BA02}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PurchaseDocJE_AP_AR</RootNamespace>
+    <AssemblyName>PurchaseDocJE-AP_AR</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\MagoLoginManager\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MagoTBServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Connected Services\MagoLoginManager\LoginManager.wsdl" />
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.ActivationState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.Advertisement.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.DataSynchroDatabaseInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.DBNetworkType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.DmsDatabaseInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.DownloadPdbResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetAuthenticationInformationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetAuthenticationNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetCalNumber2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetCalNumber3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetCalNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetCompanyLanguageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetConfigurationStreamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetInstallationVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.GetLoginInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.IsFloatingUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.IsValidDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.IsWebUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.Login2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.LoginCompactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.LoginSlotType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.LoginViaInfinityToken2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.ModuleNameInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.ProxySettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.SendErrorFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.SerialNumberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.SetCurrentComponentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.SetDefaultSchemaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.TbSenderDatabaseInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoLoginManager\PurchaseDocJE_AP_AR.MagoLoginManager.ValidateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.CloseTBResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.CreateTBExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.CreateTBResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.CreateTBTaggedExResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.CreateTBTaggedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.DiagnosticSimpleItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.ExistDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetCachedFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetDataTaggedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetDiagnosticItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetDocumentSchemaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetEnumsXmlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetFilePathFromNamespaceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetFileStreamByFileNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetFileStreamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetInstalledCulturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetReportSchemaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetServerPrinterNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetTbLoaderInstantiatedListXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetXMLEnumResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetXMLHotLinkDefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.GetXMLHotLinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.IsTbLoaderInstantiatedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.KillProcessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.KillTaggedProcessesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.KillThreadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.ReleaseTBResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.ResolvePathIMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.ResolvePathResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.RunFunctionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.SetDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.SetDataTaggedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.StopProcessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.StopThreadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.WCFBinding.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.XmlGetParametersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\PurchaseDocJE_AP_AR.MagoTBServices.XmlGetParametersTaggedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MagoTBServices\TbServices.wsdl" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MagoLoginManager\" />
+    <WCFMetadataStorage Include="Connected Services\MagoTBServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoLoginManager\LoginManager.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoLoginManager\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoLoginManager\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoLoginManager\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoTBServices\TbServices.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoTBServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoTBServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MagoTBServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

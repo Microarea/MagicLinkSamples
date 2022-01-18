@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://microarea.it/TbServices/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://microarea.it/TbServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microarea.it/TbServices/">
+      <s:element name="Init">
+        <s:complexType />
+      </s:element>
+      <s:element name="InitResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CloseTB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseTBResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateTB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkDate" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTBResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="easyToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTBEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkDate" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTBExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTBExResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="easyToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTBTagged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkDate" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="tbloaderTag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTBTaggedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTBTaggedResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="easyToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTBTaggedEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkDate" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="tbloaderTag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTBTaggedExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateTBTaggedExResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="easyToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWCFBinding">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWCFBindingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetWCFBindingResult" type="tns:WCFBinding" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="WCFBinding">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="BasicHttp" />
+          <s:enumeration value="NetTcp" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ReleaseTB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="easyToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseTBResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTbLoaderInstantiatedListXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTbLoaderInstantiatedListXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTbLoaderInstantiatedListXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsTbLoaderInstantiated">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsTbLoaderInstantiatedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsTbLoaderInstantiatedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KillThread">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="threadID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KillThreadResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StopThread">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="threadID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopThreadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StopThreadResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KillProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KillProcessResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="KillTaggedProcesses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KillTaggedProcessesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StopProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StopProcessResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetForceApplicationDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="force" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetForceApplicationDateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="postingAction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetDataResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDataTagged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="postingAction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="tbloaderTag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDataTaggedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetDataTaggedResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="loadAction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="formatType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDataTagged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="loadAction" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="formatType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="tbloaderTag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataTaggedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataTaggedResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExistDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlGetParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlGetParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlGetParametersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlGetParametersTagged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="useApproximation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="tbloaderTag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmlGetParametersTaggedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlGetParametersTaggedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLHotLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="docNamespace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nsUri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fieldXPath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLHotLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXMLHotLinkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="documentNamespace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="forUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentSchemaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportNamespace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="forUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportSchemaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLEnum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="enumID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userLanguage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLEnumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXMLEnumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnumsXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userLanguage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnumsXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEnumsXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLHotLinkDef">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="docNameSpace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nsUri" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fieldXPath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="companyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLHotLinkDefResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXMLHotLinkDefResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunFunction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nameSpace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="functionName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunFunctionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunFunctionResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCachedFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nameSpace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCachedFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCachedFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFilePathFromNamespace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nameSpace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFilePathFromNamespaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFilePathFromNamespaceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileStream">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nameSpace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileStreamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileStreamResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileStreamByFileName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileStreamByFileNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFileStreamByFileNameResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsAlive">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsAliveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsAliveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiagnosticItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authenticationToken" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="clear" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiagnosticItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDiagnosticItemsResult" type="tns:ArrayOfDiagnosticSimpleItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDiagnosticSimpleItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DiagnosticSimpleItem" type="tns:DiagnosticSimpleItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DiagnosticSimpleItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:DiagnosticType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DiagnosticType">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="None" />
+              <s:enumeration value="Warning" />
+              <s:enumeration value="Error" />
+              <s:enumeration value="LogInfo" />
+              <s:enumeration value="Information" />
+              <s:enumeration value="FatalError" />
+              <s:enumeration value="Banner" />
+              <s:enumeration value="LogOnFile" />
+              <s:enumeration value="All" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="GetServerPrinterNames">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerPrinterNamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerPrinterNamesResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="printers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstalledCultures">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetInstalledCulturesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInstalledCulturesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResolvePath">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="image" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResolvePathResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResolvePathResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResolvePathIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="image" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResolvePathIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResolvePathIMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InitSoapIn">
+    <wsdl:part name="parameters" element="tns:Init" />
+  </wsdl:message>
+  <wsdl:message name="InitSoapOut">
+    <wsdl:part name="parameters" element="tns:InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseTBSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseTB" />
+  </wsdl:message>
+  <wsdl:message name="CloseTBSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseTBResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTBSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTB" />
+  </wsdl:message>
+  <wsdl:message name="CreateTBSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTBResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTBExSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTBEx" />
+  </wsdl:message>
+  <wsdl:message name="CreateTBExSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTBExResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTBTaggedSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTBTagged" />
+  </wsdl:message>
+  <wsdl:message name="CreateTBTaggedSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTBTaggedResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTBTaggedExSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTBTaggedEx" />
+  </wsdl:message>
+  <wsdl:message name="CreateTBTaggedExSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTBTaggedExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWCFBindingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWCFBinding" />
+  </wsdl:message>
+  <wsdl:message name="GetWCFBindingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWCFBindingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseTBSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseTB" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseTBSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseTBResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTbLoaderInstantiatedListXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTbLoaderInstantiatedListXML" />
+  </wsdl:message>
+  <wsdl:message name="GetTbLoaderInstantiatedListXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTbLoaderInstantiatedListXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsTbLoaderInstantiatedSoapIn">
+    <wsdl:part name="parameters" element="tns:IsTbLoaderInstantiated" />
+  </wsdl:message>
+  <wsdl:message name="IsTbLoaderInstantiatedSoapOut">
+    <wsdl:part name="parameters" element="tns:IsTbLoaderInstantiatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="KillThreadSoapIn">
+    <wsdl:part name="parameters" element="tns:KillThread" />
+  </wsdl:message>
+  <wsdl:message name="KillThreadSoapOut">
+    <wsdl:part name="parameters" element="tns:KillThreadResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopThreadSoapIn">
+    <wsdl:part name="parameters" element="tns:StopThread" />
+  </wsdl:message>
+  <wsdl:message name="StopThreadSoapOut">
+    <wsdl:part name="parameters" element="tns:StopThreadResponse" />
+  </wsdl:message>
+  <wsdl:message name="KillProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:KillProcess" />
+  </wsdl:message>
+  <wsdl:message name="KillProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:KillProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="KillTaggedProcessesSoapIn">
+    <wsdl:part name="parameters" element="tns:KillTaggedProcesses" />
+  </wsdl:message>
+  <wsdl:message name="KillTaggedProcessesSoapOut">
+    <wsdl:part name="parameters" element="tns:KillTaggedProcessesResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:StopProcess" />
+  </wsdl:message>
+  <wsdl:message name="StopProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:StopProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetForceApplicationDateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetForceApplicationDate" />
+  </wsdl:message>
+  <wsdl:message name="SetForceApplicationDateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetForceApplicationDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SetData" />
+  </wsdl:message>
+  <wsdl:message name="SetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDataTaggedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDataTagged" />
+  </wsdl:message>
+  <wsdl:message name="SetDataTaggedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDataTaggedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataTaggedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataTagged" />
+  </wsdl:message>
+  <wsdl:message name="GetDataTaggedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataTaggedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExistDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ExistData" />
+  </wsdl:message>
+  <wsdl:message name="ExistDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ExistDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlGetParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlGetParameters" />
+  </wsdl:message>
+  <wsdl:message name="XmlGetParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlGetParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="XmlGetParametersTaggedSoapIn">
+    <wsdl:part name="parameters" element="tns:XmlGetParametersTagged" />
+  </wsdl:message>
+  <wsdl:message name="XmlGetParametersTaggedSoapOut">
+    <wsdl:part name="parameters" element="tns:XmlGetParametersTaggedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLHotLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXMLHotLink" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLHotLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXMLHotLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetReportSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLEnumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXMLEnum" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLEnumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXMLEnumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEnumsXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEnumsXml" />
+  </wsdl:message>
+  <wsdl:message name="GetEnumsXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEnumsXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLHotLinkDefSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXMLHotLinkDef" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLHotLinkDefSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXMLHotLinkDefResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunFunctionSoapIn">
+    <wsdl:part name="parameters" element="tns:RunFunction" />
+  </wsdl:message>
+  <wsdl:message name="RunFunctionSoapOut">
+    <wsdl:part name="parameters" element="tns:RunFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCachedFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCachedFile" />
+  </wsdl:message>
+  <wsdl:message name="GetCachedFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCachedFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFilePathFromNamespaceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFilePathFromNamespace" />
+  </wsdl:message>
+  <wsdl:message name="GetFilePathFromNamespaceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFilePathFromNamespaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStreamSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileStream" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStreamSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileStreamResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStreamByFileNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileStreamByFileName" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStreamByFileNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileStreamByFileNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsAliveSoapIn">
+    <wsdl:part name="parameters" element="tns:IsAlive" />
+  </wsdl:message>
+  <wsdl:message name="IsAliveSoapOut">
+    <wsdl:part name="parameters" element="tns:IsAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDiagnosticItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDiagnosticItems" />
+  </wsdl:message>
+  <wsdl:message name="GetDiagnosticItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDiagnosticItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerPrinterNamesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerPrinterNames" />
+  </wsdl:message>
+  <wsdl:message name="GetServerPrinterNamesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerPrinterNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInstalledCulturesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInstalledCultures" />
+  </wsdl:message>
+  <wsdl:message name="GetInstalledCulturesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInstalledCulturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResolvePathSoapIn">
+    <wsdl:part name="parameters" element="tns:ResolvePath" />
+  </wsdl:message>
+  <wsdl:message name="ResolvePathSoapOut">
+    <wsdl:part name="parameters" element="tns:ResolvePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResolvePathIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ResolvePathIMS" />
+  </wsdl:message>
+  <wsdl:message name="ResolvePathIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ResolvePathIMSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TbServicesSoap">
+    <wsdl:operation name="Init">
+      <wsdl:input message="tns:InitSoapIn" />
+      <wsdl:output message="tns:InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseTB">
+      <wsdl:input message="tns:CloseTBSoapIn" />
+      <wsdl:output message="tns:CloseTBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTB">
+      <wsdl:input message="tns:CreateTBSoapIn" />
+      <wsdl:output message="tns:CreateTBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBEx">
+      <wsdl:input message="tns:CreateTBExSoapIn" />
+      <wsdl:output message="tns:CreateTBExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBTagged">
+      <wsdl:input message="tns:CreateTBTaggedSoapIn" />
+      <wsdl:output message="tns:CreateTBTaggedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBTaggedEx">
+      <wsdl:input message="tns:CreateTBTaggedExSoapIn" />
+      <wsdl:output message="tns:CreateTBTaggedExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWCFBinding">
+      <wsdl:input message="tns:GetWCFBindingSoapIn" />
+      <wsdl:output message="tns:GetWCFBindingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTB">
+      <wsdl:input message="tns:ReleaseTBSoapIn" />
+      <wsdl:output message="tns:ReleaseTBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTbLoaderInstantiatedListXML">
+      <wsdl:input message="tns:GetTbLoaderInstantiatedListXMLSoapIn" />
+      <wsdl:output message="tns:GetTbLoaderInstantiatedListXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsTbLoaderInstantiated">
+      <wsdl:input message="tns:IsTbLoaderInstantiatedSoapIn" />
+      <wsdl:output message="tns:IsTbLoaderInstantiatedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KillThread">
+      <wsdl:input message="tns:KillThreadSoapIn" />
+      <wsdl:output message="tns:KillThreadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopThread">
+      <wsdl:input message="tns:StopThreadSoapIn" />
+      <wsdl:output message="tns:StopThreadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KillProcess">
+      <wsdl:input message="tns:KillProcessSoapIn" />
+      <wsdl:output message="tns:KillProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KillTaggedProcesses">
+      <wsdl:input message="tns:KillTaggedProcessesSoapIn" />
+      <wsdl:output message="tns:KillTaggedProcessesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopProcess">
+      <wsdl:input message="tns:StopProcessSoapIn" />
+      <wsdl:output message="tns:StopProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetForceApplicationDate">
+      <wsdl:input message="tns:SetForceApplicationDateSoapIn" />
+      <wsdl:output message="tns:SetForceApplicationDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetData">
+      <wsdl:input message="tns:SetDataSoapIn" />
+      <wsdl:output message="tns:SetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDataTagged">
+      <wsdl:input message="tns:SetDataTaggedSoapIn" />
+      <wsdl:output message="tns:SetDataTaggedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input message="tns:GetDataSoapIn" />
+      <wsdl:output message="tns:GetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataTagged">
+      <wsdl:input message="tns:GetDataTaggedSoapIn" />
+      <wsdl:output message="tns:GetDataTaggedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistData">
+      <wsdl:input message="tns:ExistDataSoapIn" />
+      <wsdl:output message="tns:ExistDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParameters">
+      <wsdl:input message="tns:XmlGetParametersSoapIn" />
+      <wsdl:output message="tns:XmlGetParametersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParametersTagged">
+      <wsdl:input message="tns:XmlGetParametersTaggedSoapIn" />
+      <wsdl:output message="tns:XmlGetParametersTaggedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLHotLink">
+      <wsdl:input message="tns:GetXMLHotLinkSoapIn" />
+      <wsdl:output message="tns:GetXMLHotLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSchema">
+      <wsdl:input message="tns:GetDocumentSchemaSoapIn" />
+      <wsdl:output message="tns:GetDocumentSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportSchema">
+      <wsdl:input message="tns:GetReportSchemaSoapIn" />
+      <wsdl:output message="tns:GetReportSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLEnum">
+      <wsdl:input message="tns:GetXMLEnumSoapIn" />
+      <wsdl:output message="tns:GetXMLEnumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnumsXml">
+      <wsdl:input message="tns:GetEnumsXmlSoapIn" />
+      <wsdl:output message="tns:GetEnumsXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLHotLinkDef">
+      <wsdl:input message="tns:GetXMLHotLinkDefSoapIn" />
+      <wsdl:output message="tns:GetXMLHotLinkDefSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunFunction">
+      <wsdl:input message="tns:RunFunctionSoapIn" />
+      <wsdl:output message="tns:RunFunctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCachedFile">
+      <wsdl:input message="tns:GetCachedFileSoapIn" />
+      <wsdl:output message="tns:GetCachedFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilePathFromNamespace">
+      <wsdl:input message="tns:GetFilePathFromNamespaceSoapIn" />
+      <wsdl:output message="tns:GetFilePathFromNamespaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStream">
+      <wsdl:input message="tns:GetFileStreamSoapIn" />
+      <wsdl:output message="tns:GetFileStreamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStreamByFileName">
+      <wsdl:input message="tns:GetFileStreamByFileNameSoapIn" />
+      <wsdl:output message="tns:GetFileStreamByFileNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAlive">
+      <wsdl:input message="tns:IsAliveSoapIn" />
+      <wsdl:output message="tns:IsAliveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagnosticItems">
+      <wsdl:input message="tns:GetDiagnosticItemsSoapIn" />
+      <wsdl:output message="tns:GetDiagnosticItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerPrinterNames">
+      <wsdl:input message="tns:GetServerPrinterNamesSoapIn" />
+      <wsdl:output message="tns:GetServerPrinterNamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstalledCultures">
+      <wsdl:input message="tns:GetInstalledCulturesSoapIn" />
+      <wsdl:output message="tns:GetInstalledCulturesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResolvePath">
+      <wsdl:input message="tns:ResolvePathSoapIn" />
+      <wsdl:output message="tns:ResolvePathSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResolvePathIMS">
+      <wsdl:input message="tns:ResolvePathIMSSoapIn" />
+      <wsdl:output message="tns:ResolvePathIMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TbServicesSoap" type="tns:TbServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Init">
+      <soap:operation soapAction="http://microarea.it/TbServices/Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseTB">
+      <soap:operation soapAction="http://microarea.it/TbServices/CloseTB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTB">
+      <soap:operation soapAction="http://microarea.it/TbServices/CreateTB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBEx">
+      <soap:operation soapAction="http://microarea.it/TbServices/CreateTBEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBTagged">
+      <soap:operation soapAction="http://microarea.it/TbServices/CreateTBTagged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBTaggedEx">
+      <soap:operation soapAction="http://microarea.it/TbServices/CreateTBTaggedEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWCFBinding">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetWCFBinding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTB">
+      <soap:operation soapAction="http://microarea.it/TbServices/ReleaseTB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTbLoaderInstantiatedListXML">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetTbLoaderInstantiatedListXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsTbLoaderInstantiated">
+      <soap:operation soapAction="http://microarea.it/TbServices/IsTbLoaderInstantiated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillThread">
+      <soap:operation soapAction="http://microarea.it/TbServices/KillThread" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopThread">
+      <soap:operation soapAction="http://microarea.it/TbServices/StopThread" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillProcess">
+      <soap:operation soapAction="http://microarea.it/TbServices/KillProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillTaggedProcesses">
+      <soap:operation soapAction="http://microarea.it/TbServices/KillTaggedProcesses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopProcess">
+      <soap:operation soapAction="http://microarea.it/TbServices/StopProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetForceApplicationDate">
+      <soap:operation soapAction="http://microarea.it/TbServices/SetForceApplicationDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetData">
+      <soap:operation soapAction="http://microarea.it/TbServices/SetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDataTagged">
+      <soap:operation soapAction="http://microarea.it/TbServices/SetDataTagged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataTagged">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetDataTagged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistData">
+      <soap:operation soapAction="http://microarea.it/TbServices/ExistData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParameters">
+      <soap:operation soapAction="http://microarea.it/TbServices/XmlGetParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParametersTagged">
+      <soap:operation soapAction="http://microarea.it/TbServices/XmlGetParametersTagged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLHotLink">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetXMLHotLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSchema">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetDocumentSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportSchema">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetReportSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLEnum">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetXMLEnum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnumsXml">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetEnumsXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLHotLinkDef">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetXMLHotLinkDef" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunFunction">
+      <soap:operation soapAction="http://microarea.it/TbServices/RunFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCachedFile">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetCachedFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilePathFromNamespace">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetFilePathFromNamespace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStream">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetFileStream" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStreamByFileName">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetFileStreamByFileName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAlive">
+      <soap:operation soapAction="http://microarea.it/TbServices/IsAlive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagnosticItems">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetDiagnosticItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerPrinterNames">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetServerPrinterNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstalledCultures">
+      <soap:operation soapAction="http://microarea.it/TbServices/GetInstalledCultures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResolvePath">
+      <soap:operation soapAction="http://microarea.it/TbServices/ResolvePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResolvePathIMS">
+      <soap:operation soapAction="http://microarea.it/TbServices/ResolvePathIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TbServicesSoap12" type="tns:TbServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Init">
+      <soap12:operation soapAction="http://microarea.it/TbServices/Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseTB">
+      <soap12:operation soapAction="http://microarea.it/TbServices/CloseTB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTB">
+      <soap12:operation soapAction="http://microarea.it/TbServices/CreateTB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBEx">
+      <soap12:operation soapAction="http://microarea.it/TbServices/CreateTBEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBTagged">
+      <soap12:operation soapAction="http://microarea.it/TbServices/CreateTBTagged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTBTaggedEx">
+      <soap12:operation soapAction="http://microarea.it/TbServices/CreateTBTaggedEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWCFBinding">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetWCFBinding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTB">
+      <soap12:operation soapAction="http://microarea.it/TbServices/ReleaseTB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTbLoaderInstantiatedListXML">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetTbLoaderInstantiatedListXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsTbLoaderInstantiated">
+      <soap12:operation soapAction="http://microarea.it/TbServices/IsTbLoaderInstantiated" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillThread">
+      <soap12:operation soapAction="http://microarea.it/TbServices/KillThread" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopThread">
+      <soap12:operation soapAction="http://microarea.it/TbServices/StopThread" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillProcess">
+      <soap12:operation soapAction="http://microarea.it/TbServices/KillProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillTaggedProcesses">
+      <soap12:operation soapAction="http://microarea.it/TbServices/KillTaggedProcesses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopProcess">
+      <soap12:operation soapAction="http://microarea.it/TbServices/StopProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetForceApplicationDate">
+      <soap12:operation soapAction="http://microarea.it/TbServices/SetForceApplicationDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetData">
+      <soap12:operation soapAction="http://microarea.it/TbServices/SetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDataTagged">
+      <soap12:operation soapAction="http://microarea.it/TbServices/SetDataTagged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataTagged">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetDataTagged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistData">
+      <soap12:operation soapAction="http://microarea.it/TbServices/ExistData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParameters">
+      <soap12:operation soapAction="http://microarea.it/TbServices/XmlGetParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XmlGetParametersTagged">
+      <soap12:operation soapAction="http://microarea.it/TbServices/XmlGetParametersTagged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLHotLink">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetXMLHotLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSchema">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetDocumentSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportSchema">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetReportSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLEnum">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetXMLEnum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnumsXml">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetEnumsXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLHotLinkDef">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetXMLHotLinkDef" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunFunction">
+      <soap12:operation soapAction="http://microarea.it/TbServices/RunFunction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCachedFile">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetCachedFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilePathFromNamespace">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetFilePathFromNamespace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStream">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetFileStream" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStreamByFileName">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetFileStreamByFileName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAlive">
+      <soap12:operation soapAction="http://microarea.it/TbServices/IsAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagnosticItems">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetDiagnosticItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerPrinterNames">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetServerPrinterNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstalledCultures">
+      <soap12:operation soapAction="http://microarea.it/TbServices/GetInstalledCultures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResolvePath">
+      <soap12:operation soapAction="http://microarea.it/TbServices/ResolvePath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResolvePathIMS">
+      <soap12:operation soapAction="http://microarea.it/TbServices/ResolvePathIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TbServices">
+    <wsdl:port name="TbServicesSoap" binding="tns:TbServicesSoap">
+      <soap:address location="http://localhost/Mago4-3-4-0/TbServices/TbServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TbServicesSoap12" binding="tns:TbServicesSoap12">
+      <soap12:address location="http://localhost/Mago4-3-4-0/TbServices/TbServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

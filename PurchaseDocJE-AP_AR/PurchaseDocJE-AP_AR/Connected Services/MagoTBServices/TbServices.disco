@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost/Mago4-3-4-0/TbServices/TbServices.asmx?wsdl" docRef="http://localhost/Mago4-3-4-0/TbServices/TbServices.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost/Mago4-3-4-0/TbServices/TbServices.asmx" xmlns:q1="http://microarea.it/TbServices/" binding="q1:TbServicesSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost/Mago4-3-4-0/TbServices/TbServices.asmx" xmlns:q2="http://microarea.it/TbServices/" binding="q2:TbServicesSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
