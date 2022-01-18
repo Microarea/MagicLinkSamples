@@ -39,7 +39,7 @@ For this purpose we have to include the following controls to the form:
 
 Our form should look like this:
 
-![Screenshot](/screenshots/SampleApp.png)
+![Screenshot](screenshots/SampleApp.png)
 
 ## Step 2: Connecting to Mago4 through LoginManager
 To take any action through the web services exposed via MagicLink, we need to be authenticated by the Mago4 security system, and for that we must provide a valid user name and password to the authentication web service, that is called LoginManager.  
@@ -53,7 +53,7 @@ http://localhost/Mago4/LoginManager/LoginManager.asmx
 ```
 and press "Go". Please note that you may need to replace ``localhost`` with the name of the server on which Mago4 is installed, if different from the local PC, and ``Mago4`` with the instance name of your Mago4, if you changed it during installation (i.e.: "MyMago4").
 
-![Screenshot](/screenshots/ServiceReference1.PNG)
+![Screenshot](screenshots/ServiceReference1.PNG)
 
 Give a meaningful name to the reference, i.e.: "MagoLoginManager", and press "OK".
 
@@ -156,7 +156,7 @@ We can now compile and run our application. By clicking on the "Connect" button,
 The authentication token has no timeout, so it will not expire until we explicitly log off (in this case, by closing the application).
 To check for the currently logged users, open the Microarea Administration Console without closing the sample application.
 
-![Screenshot](/screenshots/Console.png)
+![Screenshot](screenshots/Console.png)
 
 From the tree menu, select System Information, Web Services, then click on the LoginManager Web Service. On the bottom pane the currently logged user status is displayed.  
 As you can see, the login made through the sample application is shown.  
@@ -184,7 +184,7 @@ http://localhost:[port number]/Framework.TbGenlibUI.TbGenlibUI
 The ``port number`` is those returned by the call to the ``CreateTB`` method.  
 (change ``localhost`` to your Mago server; please note that the firewall, if any, must have this port opened).  
 
-![Screenshot](/screenshots/ServiceReference2.png)
+![Screenshot](screenshots/ServiceReference2.png)
 
 Click the "GO" button, and insert the web reference name (i.e.: ``TBGenlibUI``).
 
