@@ -8,111 +8,102 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PurchaseDocJE_AP_AR.Properties
-{
-
+namespace PurchaseDocJE_AP_AR.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string server
-        {
-            get
-            {
+        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
+        public string server {
+            get {
                 return ((string)(this["server"]));
             }
-            set
-            {
+            set {
                 this["server"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string instance
-        {
-            get
-            {
+        [global::System.Configuration.DefaultSettingValueAttribute("Mago4")]
+        public string instance {
+            get {
                 return ((string)(this["instance"]));
             }
-            set
-            {
+            set {
                 this["instance"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string company
-        {
-            get
-            {
+        public string company {
+            get {
                 return ((string)(this["company"]));
             }
-            set
-            {
+            set {
                 this["company"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string user
-        {
-            get
-            {
+        public string user {
+            get {
                 return ((string)(this["user"]));
             }
-            set
-            {
+            set {
                 this["user"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string password
-        {
-            get
-            {
+        public string password {
+            get {
                 return ((string)(this["password"]));
             }
-            set
-            {
+            set {
                 this["password"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool startTB
-        {
-            get
-            {
+        public bool startTB {
+            get {
                 return ((bool)(this["startTB"]));
             }
-            set
-            {
+            set {
                 this["startTB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StartFolder {
+            get {
+                return ((string)(this["StartFolder"]));
+            }
+            set {
+                this["StartFolder"] = value;
             }
         }
     }
