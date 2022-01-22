@@ -2,25 +2,26 @@
 <maxs:PurchaseDocJE xmlns:maxs="http://www.microarea.it/Schema/2004/Smart/ERP/Accounting/PurchaseDocJE/AllUsers/Basic.xsd" tbNamespace="Document.ERP.Accounting.Documents.PurchaseDocJE" xTechProfile="Basic">
     <maxs:Data>
         <maxs:JournalEntriesTax master="true">
-            <maxs:CustSuppType>3211265</maxs:CustSuppType>
+            <!-- default CustSuppType is Supplier  -->
             <maxs:CustSupp>0030</maxs:CustSupp>
-            <maxs:TaxJournal>ACQ</maxs:TaxJournal>
-            <maxs:TaxSign>327680</maxs:TaxSign>
+            <!-- use default TaxJournal of the template  -->
+            <!--  default TaxSign is positive = invoice  -->
         </maxs:JournalEntriesTax>
         <maxs:TaxSummary>
             <maxs:TaxSummaryRow>
                 <maxs:TaxCode>22</maxs:TaxCode>
                 <maxs:TaxableAmount>1836.00</maxs:TaxableAmount>
                 <maxs:TaxAmount>403.92</maxs:TaxAmount>
-                <maxs:TotalAmount>2239.92</maxs:TotalAmount>
+                <!--  TotalAmount is automatically calculated  -->
             </maxs:TaxSummaryRow>
         </maxs:TaxSummary>
         <maxs:JESlave>
             <maxs:AccTpl>FR</maxs:AccTpl>
             <maxs:DocumentDate>2021-10-31</maxs:DocumentDate>
             <maxs:DocNo>ABC-000-X-456</maxs:DocNo>
-            <maxs:PostingDate>2021-10-31</maxs:PostingDate>
-            <maxs:AccrualDate>2021-10-31</maxs:AccrualDate>
+            <!-- 
+                PostingDate and AccrualDate automatically assigned as the current application date used in MagicLink
+             -->
         </maxs:JESlave>
         <maxs:GLJournal>
             <maxs:GLJournalRow>

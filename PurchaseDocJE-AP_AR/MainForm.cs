@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,9 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace PurchaseDocJE_AP_AR
 {
@@ -21,6 +24,8 @@ namespace PurchaseDocJE_AP_AR
         private string server;
         private string instance;
         private int tbPort;
+
+        private string JournalEntryId;
 
         public MainForm()
         {
@@ -92,11 +97,29 @@ namespace PurchaseDocJE_AP_AR
                 aTbSvc.Endpoint.Address = new System.ServiceModel.EndpointAddress($"http://{server}/{instance}/TBServices/TBServices.asmx");
 
                 XElement xmlDoc = XElement.Load(tbxXMLFile.Text);
+                // remove comments from sample XML if any, SetData does not accept them
+                xmlDoc.DescendantNodes().OfType<XComment>().Remove();
                 string strResult;
                 bool bSuccess = aTbSvc.SetData(authenticationToken, xmlDoc.ToString(), DateTime.Now, 0, true, out strResult);
                 if (bSuccess)
                 {
-                    rtbxResults.Text = $"success \n[{strResult.Substring(0, 300)} ...]";
+                    XElement xmlResult = XElement.Parse(strResult);
+
+                    // the returned XML has a namespace, need to be matched for the XPath query below
+                    XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());
+                    nsmgr.AddNamespace("maxs", xmlResult.Name.NamespaceName);
+
+                    try
+                    {
+                        // the Id of the created Journal entry is extracted from the returned XML, by matching the first node containing it
+                        JournalEntryId = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:JournalEntryId", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
+
+                        rtbxResults.Text = $"success \n{xmlResult}\n";
+                    }
+                    catch (Exception ex)
+                    {
+                        rtbxResults.Text = $"!!!FAILED!!! \n[{ex.Message}]\n";
+                    }
                 }
                 else
                 {

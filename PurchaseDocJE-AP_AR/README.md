@@ -34,3 +34,12 @@ How it works:
 * the ``LoginCompact`` method is invoked, providing company, user name and password. If successful, the returned authentication token is stored
 * if requested, the ``TBLoader`` process is started, and the returned ``tbPort`` is stored
 
+## Step 1 - Posting the accounting Purchase Document 
+The first step is posting the accounting Purchase Document to Mago4.
+
+The program allows to load an XML: some are provided in the ``sample`` subfolder, but it is possible to use custom ones.  
+The included samples are:
+* ``PurchaseDocJESample.xml`` a sample, based on the ``Basic`` export profile, providing the most common data for such a document
+* ``PurchaseDocJESample-minimal.xml`` the bare minimum data required to create a coherent and valid document. All the possible defaults are left for Mago4 to determine. 
+
+After the document is posted via ``SetData``, the complete XML of the new accounting document is returned (if successful). The value of the ``JournalEntryId`` field is extracted from the XML, it will be useful for the next step.

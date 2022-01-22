@@ -65,7 +65,7 @@ namespace PurchaseDocJE_AP_AR
 
                 try
                 {
-                    int aRes = aLogMng.LoginCompact(ref user, ref company, password, "BPM", true, out authenticationToken);
+                    int aRes = aLogMng.LoginCompact(ref user, ref company, password, "PurchaseDocJESample", true, out authenticationToken);
 
                     if (aRes != 0) // 0 means no errors
                     {
