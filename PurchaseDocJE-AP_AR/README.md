@@ -42,7 +42,8 @@ The included samples are:
 * ``PurchaseDocJESample.xml`` a sample, based on the ``Basic`` export profile, providing the most common data for such a document
 * ``PurchaseDocJESample-minimal.xml`` the bare minimum data required to create a coherent and valid document. All the possible defaults are left for Mago4 to determine. 
 
-After the document is posted via ``SetData``, the complete XML of the new accounting document is returned (if successful). The value of the ``JournalEntryId`` field is extracted from the XML, it will be useful for the next step.
+After the document is posted via ``SetData``, the complete XML of the new accounting document is returned (if successful). The value of some fields, such as the ``JournalEntryId``, is extracted from the XML. They will be proposed as defaults for the next step.
+
 
 ## Step 2 - Creating the Payable document and connecting it to the accounting one
 The second step is create the Payable document, which contains the payment due dates and amounts, and connect it to the previously created accounting document. This will allow to correctly manage the further accounting operations (i.e: paying the supplier).
