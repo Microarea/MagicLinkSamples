@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:Microarea.Web.Services.RequestForPaymentFile" elementFormDefault="qualified" targetNamespace="urn:Microarea.Web.Services.RequestForPaymentFile" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="lastLevelNo" type="xs:int" />
+  <xs:element name="openingText" nillable="true" type="xs:string" />
+  <xs:element name="closingText" nillable="true" type="xs:string" />
+  <xs:element name="return" type="xs:boolean" />
+</xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd13" filename="ERP.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd8" filename="ERP0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd9" filename="ERP1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?wsdl" filename="AP_ARComponents.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd10" filename="ERP2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd14" filename="ERP3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?disco" filename="ERP.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd11" filename="ERP4.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd12" filename="ERP5.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd4" filename="ERP6.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd5" filename="ERP7.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd6" filename="ERP8.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd7" filename="ERP9.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd0" filename="ERP10.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd1" filename="ERP11.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd2" filename="ERP12.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://usr-rinaldiand:10050/ERP.AP_AR.Components?xsd=xsd3" filename="ERP13.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

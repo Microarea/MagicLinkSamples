@@ -106,5 +106,15 @@ namespace PurchaseDocJE_AP_AR.Properties {
                 this["StartFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://usr-rinaldiand:10050/ERP.AP_AR.Components/AP_ARComponents")]
+        public string PurchaseDocJE_AP_AR_AP_AR_Components_AP_ARComponents {
+            get {
+                return ((string)(this["PurchaseDocJE_AP_AR_AP_AR_Components_AP_ARComponents"]));
+            }
+        }
     }
 }
