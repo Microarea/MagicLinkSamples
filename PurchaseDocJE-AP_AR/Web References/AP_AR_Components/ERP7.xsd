@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="urn:Microarea.Web.Services.RequestForPaymentCustUpdate" elementFormDefault="qualified" targetNamespace="urn:Microarea.Web.Services.RequestForPaymentCustUpdate" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="customer" nillable="true" type="xs:string" />
-  <xs:element name="dueDate" nillable="true" type="xs:string" />
-  <xs:element name="printDate" nillable="true" type="xs:string" />
-  <xs:element name="return" type="xs:int" />
-</xs:schema>

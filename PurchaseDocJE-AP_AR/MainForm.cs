@@ -26,7 +26,12 @@ namespace PurchaseDocJE_AP_AR
         private string instance;
         private int tbPort;
 
-        private List<Installment> installments = new List<Installment>();
+        private string JournalEntryID = string.Empty;
+        private string SupplierCode = string.Empty;
+        private string DocumentDate = string.Empty;
+        private string DocumentNumber = string.Empty;
+        private string TotalAmount = string.Empty;
+        private string TaxAmount = string.Empty;
 
         public MainForm()
         {
@@ -119,14 +124,22 @@ namespace PurchaseDocJE_AP_AR
                     {
                         // The Id of the created Journal entry and other useful data are extracted
                         // from the returned XML, by matching the first node containing the corresponding tag
-                        tbxJournalEntryID.Text = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:JournalEntryId", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
-                        tbxSupplierCode.Text = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:CustSupp", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
-                        tbxDocumentDate.Text = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:DocumentDate", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
-                        tbxDocumentNumber.Text = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:DocNo", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
-                        tbxTotalAmount.Text = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:TotalAmount", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
-                        tbxTaxAmount.Text = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:TaxAmount", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
+                        JournalEntryID = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:JournalEntryId", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
+                        SupplierCode = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:CustSupp", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
+                        DocumentDate = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:DocumentDate", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
+                        DocumentNumber = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:DocNo", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
+                        TotalAmount = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:TotalAmount", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
+                        TaxAmount = (((IEnumerable)xmlResult.XPathEvaluate("//maxs:TaxAmount", nsmgr)).Cast<XElement>()).FirstOrDefault().Value;
 
                         rtbxResults.Text = $"success \n{xmlResult}\n";
+
+                        //to show on the interface:
+                        lblJournalEntryID.Text = JournalEntryID;
+                        lblSupplierCode.Text = SupplierCode;
+                        lblDocNo.Text = DocumentNumber;
+                        lblDocumentDate.Text = DocumentDate;
+                        lblTotalAmount.Text = TotalAmount;
+                        lblTaxAmount.Text = TaxAmount;
                     }
                     catch (Exception ex)
                     {
@@ -141,7 +154,7 @@ namespace PurchaseDocJE_AP_AR
 
         }
 
-        private void btnInstallments_Click(object sender, EventArgs e)
+        private void btnCreatePayable_Click(object sender, EventArgs e)
         {
             if (authenticationToken == string.Empty)
             {
@@ -149,84 +162,39 @@ namespace PurchaseDocJE_AP_AR
                 return;
             }
 
-            if (tbxInstPayment.Text == string.Empty || tbxInstStartDate.Text == string.Empty || tbxInstTotAmount.Text == string.Empty || tbxInstTaxAmount.Text == string.Empty)
+            if (tbxPaymentTerm.Text == string.Empty)
             {
-                MessageBox.Show("Please set a payment term code, a starting date, a total amount and a tax amount");
+                MessageBox.Show("Please set a payment term code");
                 return;
             }
 
-            AP_AR_Components.AP_ARComponents AP_AR = new AP_AR_Components.AP_ARComponents();
-            AP_AR.Url = string.Format("http://{0}:{1}/ERP.AP_AR.Components/AP_ARComponents", server, tbPort);
-
-            AP_AR.HeaderInfo = new AP_AR_Components.TBHeaderInfo();
-            AP_AR.HeaderInfo.AuthToken = authenticationToken;
-
-            int handle = AP_AR.InstallmentDetails_Create();
-
-            int InstNo = 0;
-            try
+            if (JournalEntryID == string.Empty)
             {
-                bool bMore;
-                installments.Clear();
-                do
-                {
-                    Installment installment = new Installment();
-                    bMore = AP_AR.InstallmentDetails_CalculateInstallmentData(
-                        handle,
-                        tbxInstPayment.Text,
-                        "EUR",
-                        tbxInstStartDate.Text,
-                        double.Parse(tbxInstTotAmount.Text, CultureInfo.InvariantCulture),
-                        double.Parse(tbxInstTaxAmount.Text, CultureInfo.InvariantCulture),
-                        ref InstNo,
-                        ref installment.Date,
-                        ref installment.Type,
-                        ref installment.Amount
-                    );
-                    if (bMore)
-                    {
-                        installments.Add(installment);
-                        InstNo++;
-                    }
-                } while (bMore);
-
-                rtbxResults.Text = string.Empty;
-                foreach (var inst in installments)
-                {
-                    rtbxResults.Text += $"{inst.Date}  {inst.Amount}\n";
-                }
-            }
-            catch (Exception ex)
-            {
-                rtbxResults.Text = $"!!!FAILED!!! \n[{ex.Message}]\n";
+                MessageBox.Show("Please post a purchase document before the payable");
+                return;
             }
 
-            AP_AR.InstallmentDetails_Dispose(handle);
-        }
-
-        private void btnCreatePayable_Click(object sender, EventArgs e)
-        {
             // omitting the PaymentTerm node will apply the default payment of the Supplier master
             XElement xmlPayable = XElement.Parse($@"<?xml version='1.0'?>
                 <maxs:Receivables xmlns:maxs='http://www.microarea.it/Schema/2004/Smart/ERP/AP_AR/Receivables/Standard/Tcpos_Receivables.xsd' tbNamespace='Document.ERP.AP_AR.Documents.Receivables' xTechProfile='Tcpos_Receivables'>
                     <maxs:Data>
                         <maxs:AP_AR master='true'>
                             <maxs:CustSuppType>3211265</maxs:CustSuppType>
-                            <maxs:CustSupp>{tbxSupplierCode.Text}</maxs:CustSupp>
+                            <maxs:CustSupp>{SupplierCode}</maxs:CustSupp>
                             <maxs:Payment>{tbxPaymentTerm.Text}</maxs:Payment>
-                            <maxs:DocNo>{tbxDocumentDate.Text}</maxs:DocNo>
-                            <maxs:DocumentDate>{tbxDocumentDate.Text}</maxs:DocumentDate>
-                            <maxs:TotalAmount>{tbxTotalAmount.Text}</maxs:TotalAmount>
-                            <maxs:TaxAmount>{tbxTaxAmount.Text}</maxs:TaxAmount>
-                            <maxs:JournalEntryId>{tbxJournalEntryID.Text}</maxs:JournalEntryId>
+                            <maxs:DocNo>{DocumentNumber}</maxs:DocNo>
+                            <maxs:DocumentDate>{DocumentDate}</maxs:DocumentDate>
+                            <maxs:TotalAmount>{TotalAmount}</maxs:TotalAmount>
+                            <maxs:TaxAmount>{TaxAmount}</maxs:TaxAmount>
+                            <maxs:JournalEntryId>{JournalEntryID}</maxs:JournalEntryId>
                         </maxs:AP_AR>
                     </maxs:Data>
                 </maxs:Receivables>");
 
             /*
             It is possible to use a custom set of installments instead of accepting the automatic calculation 
-            */
-
+            (see "Custom Installments" below)
+            *//*
             XNamespace maxs = xmlPayable.Name.NamespaceName;
             var data = xmlPayable.Descendants(maxs + "Data").FirstOrDefault();
             var detail = new XElement("Detail");
@@ -269,15 +237,64 @@ namespace PurchaseDocJE_AP_AR
 
         }
     }
-    public class Installment
-    {
-        public string Date = string.Empty;
-        public double Amount = 0.0;
-        public int Type = 0;
-    }
 }
 
+/*
+    Custom Installments
+    ===================
 
+    It is possible to submit a custom list of installments, using a similar structure
+    
+        private List<Installment> installments = new List<Installment>();
+
+        public class Installment
+        {
+            public string Date = string.Empty;
+            public double Amount = 0.0;
+            public int Type = 0;
+        }
+
+    As a matter of example, this is how to ask Mago to calculate the installments starting from a Payment Term Code.
+    It is required to add a Web Reference (not a Connected Service) to the Mago4 component that exposes the web method: http://[Mago4 server]:[port]/ERP.AP_AR.Components/AP_ARComponents
+
+        AP_AR_Components.AP_ARComponents AP_AR = new AP_AR_Components.AP_ARComponents();
+        AP_AR.Url = string.Format("http://{0}:{1}/ERP.AP_AR.Components/AP_ARComponents", server, tbPort);
+
+        AP_AR.HeaderInfo = new AP_AR_Components.TBHeaderInfo();
+        AP_AR.HeaderInfo.AuthToken = authenticationToken;
+
+        int handle = AP_AR.InstallmentDetails_Create();
+
+        int InstNo = 0;
+
+        bool bMore;
+        installments.Clear();
+        do
+        {
+            Installment installment = new Installment();
+            bMore = AP_AR.InstallmentDetails_CalculateInstallmentData(
+                handle,
+                PaymentTermCode,
+                "EUR",
+                StartingDate,
+                TotalAmount,
+                TaxAmount,
+                ref InstNo,
+                ref installment.Date,
+                ref installment.Type,
+                ref installment.Amount
+            );
+            if (bMore)
+            {
+                installments.Add(installment);
+                InstNo++;
+            }
+        } while (bMore);
+
+        AP_AR.InstallmentDetails_Dispose(handle);
+
+
+ */
 
 
 

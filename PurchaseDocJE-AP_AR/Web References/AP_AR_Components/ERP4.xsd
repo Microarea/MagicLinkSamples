@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="urn:Microarea.Web.Services.CalcWithholdingTaxBalance_CalculateWithholdingTaxBalance" elementFormDefault="qualified" targetNamespace="urn:Microarea.Web.Services.CalcWithholdingTaxBalance_CalculateWithholdingTaxBalance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="handle" type="xs:int" />
-  <xs:element name="aPymtSchedId" type="xs:int" />
-  <xs:element name="aBalance" type="xs:double" />
-  <xs:element name="return" type="xs:double" />
-</xs:schema>
