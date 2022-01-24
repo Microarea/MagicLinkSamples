@@ -47,7 +47,7 @@ The included samples are:
 
 After the document is posted via ``SetData``, the complete XML of the new accounting document is returned (if successful). The value of some fields, such as the ``JournalEntryId``, is extracted from the XML. They are needed for the next step.
 
-l## Step 2 - Creating the Payable document and connecting it to the accounting one
+## Step 2 - Creating the Payable document and connecting it to the accounting one
 The second step is create the Payable document, which contains the payment due dates and amounts, and connect it to the previously created accounting document. This will allow to correctly manage the further accounting operations (i.e: paying the supplier).
 
 This is done by posting the Payable document, using a suitable simple profile, by filling all the required data equal to those of the Accounting Purchase invoice just posted.  
