@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DBTS>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.JournalEntriesTax">
+		<Fields>
+			<Field name="LogNo" export="1"></Field>
+			<Field name="CustSupp" export="1"></Field>
+			<Field name="TaxJournal" export="1"></Field>
+			<Field name="JournalEntryId" export="1"></Field>
+			<Field name="TBGuid" export="1"></Field>
+			<Field name="TaxSign" export="1"></Field>
+			<Field name="CustSuppType" export="1"></Field>
+			<Field name="TaxAmount" export="1"></Field>
+		</Fields>
+	</DBT>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.TaxSummary">
+		<Fields>
+			<Field name="JournalEntryId" export="1"></Field>
+			<Field name="Line" export="1"></Field>
+			<Field name="TaxCode" export="1"></Field>
+			<Field name="TaxableAmount" export="1"></Field>
+			<Field name="TaxAmount" export="1"></Field>
+			<Field name="TotalAmount" export="1"></Field>
+			<Field name="UndeductibleAmount" export="1"></Field>
+		</Fields>
+	</DBT>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.JESlave">
+		<Fields>
+			<Field name="JournalEntryId" export="1"></Field>
+			<Field name="AccTpl" export="1"></Field>
+			<Field name="PostingDate" export="1"></Field>
+			<Field name="AccrualDate" export="1"></Field>
+			<Field name="DocumentDate" export="1"></Field>
+			<Field name="DocNo" export="1"></Field>
+			<Field name="TotalAmount" export="1"></Field>
+		</Fields>
+	</DBT>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.GLJournal">
+		<Fields>
+			<Field name="JournalEntryId" export="1"></Field>
+			<Field name="Line" export="1"></Field>
+			<Field name="AccRsn" export="1"></Field>
+			<Field name="Account" export="1"></Field>
+			<Field name="AmountType" export="1"></Field>
+			<Field name="DebitCreditSign" export="1"></Field>
+			<Field name="Amount" export="1"></Field>
+			<Field name="Notes" export="1"></Field>
+			<Field name="CustSuppType" export="1"></Field>
+			<Field name="CustSupp" export="1"></Field>
+		</Fields>
+	</DBT>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.EUAnnotations">
+		<Fields>
+			<Field name="JournalEntryId" export="1"></Field>
+		</Fields>
+	</DBT>
+</DBTS>

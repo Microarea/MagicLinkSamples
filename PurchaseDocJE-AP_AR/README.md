@@ -43,7 +43,9 @@ The first step is posting the accounting Purchase Document to Mago4.
 In the first tab, the program allows to load an XML: some are provided in the ``sample`` subfolder, but it is possible to use custom ones.  
 The included samples are:
 * ``PurchaseDocJESample.xml`` a sample, based on the ``Basic`` export profile, providing the most common data for such a document
-* ``PurchaseDocJESample-minimal.xml`` the bare minimum data required to create a coherent and valid document. All the possible defaults are left for Mago4 to determine. 
+* ``PurchaseDocJESample-minimal.xml`` the bare minimum data required to create a coherent and valid document. All the possible defaults are left for Mago4 to determine.
+
+*Note: the `Basic` profiles are defined starting from release 3.5. To use this sample with previous versions of Mago4, see [Installing the custom profiles](#installing-the-custom-profiles)*
 
 After the document is posted via ``SetData``, the complete XML of the new accounting document is returned (if successful). The value of some fields, such as the ``JournalEntryId``, is extracted from the XML. They are needed for the next step.
 
@@ -58,3 +60,11 @@ Please note that the installments can be generated in different ways:
 * omitting the ``Payment`` node will let Mago4 use the standard payment method of the supplier, and create the corresponding installments.
 * the installments body can be competely overriden, by creating the installments manually (i.e.: agreed with the supplier).  
 To do this, there is a commented section in the ``btnCreatePayable_Click`` function, showing how to manually fill the ``Detail`` section of the Payable document. 
+
+## Installing the custom profiles
+The `Basic` profiles are included in version 3.5 and above. If you want to use this sample with a Mago4 release 3.4, you must install them as custom ones.    
+Copy the ``Applications`` folder inside the ``profiles`` in the following folder:
+```sh
+    [Mago installation folder]Custom\Companies\[company name] 
+```
+The Mago installation folder usually is ``C:\Program Files (x86)\Mago4``.

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MainExternalReferences>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.JournalEntriesTax">
+		<Export>1</Export>
+		<UpdateType>Replace</UpdateType>
+		<ExternalReferences></ExternalReferences>
+	</DBT>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.TaxSummary">
+		<Export>1</Export>
+		<UpdateType>Replace</UpdateType>
+		<ExternalReferences></ExternalReferences>
+	</DBT>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.JESlave">
+		<Export>1</Export>
+		<UpdateType>Replace</UpdateType>
+		<ExternalReferences></ExternalReferences>
+	</DBT>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.GLJournal">
+		<Export>1</Export>
+		<UpdateType>Replace</UpdateType>
+		<ExternalReferences></ExternalReferences>
+	</DBT>
+	<DBT namespace="ERP.Accounting.Documents.PurchaseDocJE.EUAnnotations">
+		<Export>1</Export>
+		<UpdateType>Replace</UpdateType>
+		<ExternalReferences></ExternalReferences>
+	</DBT>
+</MainExternalReferences>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MainExternalReferences>
+	<DBT namespace="ERP.AP_AR.Documents.Payables.AP_AR">
+		<Export>1</Export>
+		<UpdateType>Replace</UpdateType>
+		<ExternalReferences></ExternalReferences>
+	</DBT>
+	<DBT namespace="ERP.AP_AR.Documents.Payables.Detail">
+		<Export>1</Export>
+		<UpdateType>Replace</UpdateType>
+		<ExternalReferences></ExternalReferences>
+	</DBT>
+</MainExternalReferences>

@@ -53,6 +53,8 @@
             this.tbxPaymentTerm = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblConnectionInfo = new System.Windows.Forms.Label();
+            this.lblLogNo = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -145,6 +147,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.lblLogNo);
+            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.lblTaxAmount);
             this.tabPage2.Controls.Add(this.lblTotalAmount);
             this.tabPage2.Controls.Add(this.lblDocumentDate);
@@ -170,7 +174,7 @@
             // lblTaxAmount
             // 
             this.lblTaxAmount.AutoSize = true;
-            this.lblTaxAmount.Location = new System.Drawing.Point(115, 139);
+            this.lblTaxAmount.Location = new System.Drawing.Point(115, 119);
             this.lblTaxAmount.Name = "lblTaxAmount";
             this.lblTaxAmount.Size = new System.Drawing.Size(67, 13);
             this.lblTaxAmount.TabIndex = 38;
@@ -179,7 +183,7 @@
             // lblTotalAmount
             // 
             this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Location = new System.Drawing.Point(115, 113);
+            this.lblTotalAmount.Location = new System.Drawing.Point(115, 97);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(73, 13);
             this.lblTotalAmount.TabIndex = 37;
@@ -188,7 +192,7 @@
             // lblDocumentDate
             // 
             this.lblDocumentDate.AutoSize = true;
-            this.lblDocumentDate.Location = new System.Drawing.Point(115, 87);
+            this.lblDocumentDate.Location = new System.Drawing.Point(115, 73);
             this.lblDocumentDate.Name = "lblDocumentDate";
             this.lblDocumentDate.Size = new System.Drawing.Size(85, 13);
             this.lblDocumentDate.TabIndex = 36;
@@ -197,7 +201,7 @@
             // lblDocNo
             // 
             this.lblDocNo.AutoSize = true;
-            this.lblDocNo.Location = new System.Drawing.Point(115, 61);
+            this.lblDocNo.Location = new System.Drawing.Point(115, 48);
             this.lblDocNo.Name = "lblDocNo";
             this.lblDocNo.Size = new System.Drawing.Size(47, 13);
             this.lblDocNo.TabIndex = 35;
@@ -206,7 +210,7 @@
             // lblSupplierCode
             // 
             this.lblSupplierCode.AutoSize = true;
-            this.lblSupplierCode.Location = new System.Drawing.Point(115, 34);
+            this.lblSupplierCode.Location = new System.Drawing.Point(115, 27);
             this.lblSupplierCode.Name = "lblSupplierCode";
             this.lblSupplierCode.Size = new System.Drawing.Size(59, 13);
             this.lblSupplierCode.TabIndex = 34;
@@ -224,7 +228,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 61);
+            this.label8.Location = new System.Drawing.Point(5, 48);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 13);
             this.label8.TabIndex = 31;
@@ -233,7 +237,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 34);
+            this.label6.Location = new System.Drawing.Point(5, 27);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 29;
@@ -261,7 +265,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 139);
+            this.label5.Location = new System.Drawing.Point(5, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 24;
@@ -270,7 +274,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 113);
+            this.label4.Location = new System.Drawing.Point(5, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 22;
@@ -279,7 +283,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 87);
+            this.label3.Location = new System.Drawing.Point(5, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 20;
@@ -308,6 +312,24 @@
             this.lblConnectionInfo.Size = new System.Drawing.Size(264, 18);
             this.lblConnectionInfo.TabIndex = 6;
             this.lblConnectionInfo.Text = "(not connected)";
+            // 
+            // lblLogNo
+            // 
+            this.lblLogNo.AutoSize = true;
+            this.lblLogNo.Location = new System.Drawing.Point(117, 140);
+            this.lblLogNo.Name = "lblLogNo";
+            this.lblLogNo.Size = new System.Drawing.Size(45, 13);
+            this.lblLogNo.TabIndex = 40;
+            this.lblLogNo.Text = "(LogNo)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 140);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Log No";
             // 
             // MainForm
             // 
@@ -356,6 +378,8 @@
         private System.Windows.Forms.Label lblDocumentDate;
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Label lblTaxAmount;
+        private System.Windows.Forms.Label lblLogNo;
+        private System.Windows.Forms.Label label10;
     }
 }
 
