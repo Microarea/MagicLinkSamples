@@ -37,6 +37,8 @@
             this.tbxXMLFile = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblLogNo = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblTaxAmount = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.lblDocumentDate = new System.Windows.Forms.Label();
@@ -53,11 +55,28 @@
             this.tbxPaymentTerm = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblConnectionInfo = new System.Windows.Forms.Label();
-            this.lblLogNo = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnPostPayment = new System.Windows.Forms.Button();
+            this.btnBrowsePayment = new System.Windows.Forms.Button();
+            this.tbxPaymentXML = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.lblPaymentJournalEntryID = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnClosePayable = new System.Windows.Forms.Button();
+            this.tbxPayableDocID = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblPaymentDocumentDate = new System.Windows.Forms.Label();
+            this.label99 = new System.Windows.Forms.Label();
+            this.lblPaymentAmount = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbxInstallmentDueDate = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -85,6 +104,8 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(13, 42);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -103,7 +124,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(767, 217);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Purchase Document";
+            this.tabPage1.Text = "Step 1 - Purchase Document";
             // 
             // btnPostDocument
             // 
@@ -169,7 +190,25 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(767, 217);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Payable document";
+            this.tabPage2.Text = "Step 2 - Payable document";
+            // 
+            // lblLogNo
+            // 
+            this.lblLogNo.AutoSize = true;
+            this.lblLogNo.Location = new System.Drawing.Point(117, 140);
+            this.lblLogNo.Name = "lblLogNo";
+            this.lblLogNo.Size = new System.Drawing.Size(45, 13);
+            this.lblLogNo.TabIndex = 40;
+            this.lblLogNo.Text = "(LogNo)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 140);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Log No";
             // 
             // lblTaxAmount
             // 
@@ -313,23 +352,175 @@
             this.lblConnectionInfo.TabIndex = 6;
             this.lblConnectionInfo.Text = "(not connected)";
             // 
-            // lblLogNo
+            // tabPage3
             // 
-            this.lblLogNo.AutoSize = true;
-            this.lblLogNo.Location = new System.Drawing.Point(117, 140);
-            this.lblLogNo.Name = "lblLogNo";
-            this.lblLogNo.Size = new System.Drawing.Size(45, 13);
-            this.lblLogNo.TabIndex = 40;
-            this.lblLogNo.Text = "(LogNo)";
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.btnPostPayment);
+            this.tabPage3.Controls.Add(this.btnBrowsePayment);
+            this.tabPage3.Controls.Add(this.tbxPaymentXML);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(767, 217);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Step 3 - Accounting Payment";
             // 
-            // label10
+            // btnPostPayment
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 140);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 13);
-            this.label10.TabIndex = 39;
-            this.label10.Text = "Log No";
+            this.btnPostPayment.Location = new System.Drawing.Point(35, 85);
+            this.btnPostPayment.Name = "btnPostPayment";
+            this.btnPostPayment.Size = new System.Drawing.Size(75, 23);
+            this.btnPostPayment.TabIndex = 12;
+            this.btnPostPayment.Text = "Post";
+            this.btnPostPayment.UseVisualStyleBackColor = true;
+            this.btnPostPayment.Click += new System.EventHandler(this.btnPostPayment_Click);
+            // 
+            // btnBrowsePayment
+            // 
+            this.btnBrowsePayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowsePayment.Location = new System.Drawing.Point(466, 23);
+            this.btnBrowsePayment.Name = "btnBrowsePayment";
+            this.btnBrowsePayment.Size = new System.Drawing.Size(30, 20);
+            this.btnBrowsePayment.TabIndex = 11;
+            this.btnBrowsePayment.Text = "...";
+            this.btnBrowsePayment.UseVisualStyleBackColor = true;
+            this.btnBrowsePayment.Click += new System.EventHandler(this.btnBrowsePayment_Click);
+            // 
+            // tbxPaymentXML
+            // 
+            this.tbxPaymentXML.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxPaymentXML.Location = new System.Drawing.Point(94, 23);
+            this.tbxPaymentXML.Name = "tbxPaymentXML";
+            this.tbxPaymentXML.Size = new System.Drawing.Size(366, 20);
+            this.tbxPaymentXML.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(32, 26);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Load XML";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Controls.Add(this.tbxInstallmentDueDate);
+            this.tabPage4.Controls.Add(this.label13);
+            this.tabPage4.Controls.Add(this.lblPaymentAmount);
+            this.tabPage4.Controls.Add(this.label16);
+            this.tabPage4.Controls.Add(this.lblPaymentDocumentDate);
+            this.tabPage4.Controls.Add(this.label99);
+            this.tabPage4.Controls.Add(this.btnClosePayable);
+            this.tabPage4.Controls.Add(this.tbxPayableDocID);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.lblPaymentJournalEntryID);
+            this.tabPage4.Controls.Add(this.label12);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(767, 217);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Step 4 - Payable Closing";
+            // 
+            // lblPaymentJournalEntryID
+            // 
+            this.lblPaymentJournalEntryID.AutoSize = true;
+            this.lblPaymentJournalEntryID.Location = new System.Drawing.Point(173, 13);
+            this.lblPaymentJournalEntryID.Name = "lblPaymentJournalEntryID";
+            this.lblPaymentJournalEntryID.Size = new System.Drawing.Size(123, 13);
+            this.lblPaymentJournalEntryID.TabIndex = 35;
+            this.lblPaymentJournalEntryID.Text = "(PaymentJournalEntryID)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(30, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(125, 13);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Payment Journal entry ID";
+            // 
+            // btnClosePayable
+            // 
+            this.btnClosePayable.Location = new System.Drawing.Point(33, 134);
+            this.btnClosePayable.Name = "btnClosePayable";
+            this.btnClosePayable.Size = new System.Drawing.Size(207, 23);
+            this.btnClosePayable.TabIndex = 38;
+            this.btnClosePayable.Text = "Close Payable";
+            this.btnClosePayable.UseVisualStyleBackColor = true;
+            this.btnClosePayable.Click += new System.EventHandler(this.btnClosePayable_Click);
+            // 
+            // tbxPayableDocID
+            // 
+            this.tbxPayableDocID.Location = new System.Drawing.Point(176, 104);
+            this.tbxPayableDocID.Name = "tbxPayableDocID";
+            this.tbxPayableDocID.Size = new System.Drawing.Size(100, 20);
+            this.tbxPayableDocID.TabIndex = 37;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(30, 107);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(109, 13);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Payable document ID";
+            // 
+            // lblPaymentDocumentDate
+            // 
+            this.lblPaymentDocumentDate.AutoSize = true;
+            this.lblPaymentDocumentDate.Location = new System.Drawing.Point(173, 35);
+            this.lblPaymentDocumentDate.Name = "lblPaymentDocumentDate";
+            this.lblPaymentDocumentDate.Size = new System.Drawing.Size(126, 13);
+            this.lblPaymentDocumentDate.TabIndex = 40;
+            this.lblPaymentDocumentDate.Text = "(PaymentDocumentDate)";
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(30, 35);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(126, 13);
+            this.label99.TabIndex = 39;
+            this.label99.Text = "Payment Document Date";
+            // 
+            // lblPaymentAmount
+            // 
+            this.lblPaymentAmount.AutoSize = true;
+            this.lblPaymentAmount.Location = new System.Drawing.Point(173, 57);
+            this.lblPaymentAmount.Name = "lblPaymentAmount";
+            this.lblPaymentAmount.Size = new System.Drawing.Size(90, 13);
+            this.lblPaymentAmount.TabIndex = 42;
+            this.lblPaymentAmount.Text = "(PaymentAmount)";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(30, 57);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(87, 13);
+            this.label16.TabIndex = 41;
+            this.label16.Text = "Payment Amount";
+            // 
+            // tbxInstallmentDueDate
+            // 
+            this.tbxInstallmentDueDate.Location = new System.Drawing.Point(176, 78);
+            this.tbxInstallmentDueDate.Name = "tbxInstallmentDueDate";
+            this.tbxInstallmentDueDate.Size = new System.Drawing.Size(100, 20);
+            this.tbxInstallmentDueDate.TabIndex = 44;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(30, 81);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 13);
+            this.label13.TabIndex = 43;
+            this.label13.Text = "Installment due date";
             // 
             // MainForm
             // 
@@ -347,6 +538,10 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -380,6 +575,23 @@
         private System.Windows.Forms.Label lblTaxAmount;
         private System.Windows.Forms.Label lblLogNo;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnPostPayment;
+        private System.Windows.Forms.Button btnBrowsePayment;
+        private System.Windows.Forms.TextBox tbxPaymentXML;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label lblPaymentJournalEntryID;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnClosePayable;
+        private System.Windows.Forms.TextBox tbxPayableDocID;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblPaymentAmount;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblPaymentDocumentDate;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.TextBox tbxInstallmentDueDate;
+        private System.Windows.Forms.Label label13;
     }
 }
 

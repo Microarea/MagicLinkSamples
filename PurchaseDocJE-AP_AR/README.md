@@ -59,7 +59,32 @@ Please note that the installments can be generated in different ways:
 * setting the ``Payment`` node with a valid payment term code will automatically create the corresponding installments in the payable. 
 * omitting the ``Payment`` node will let Mago4 use the standard payment method of the supplier, and create the corresponding installments.
 * the installments body can be competely overriden, by creating the installments manually (i.e.: agreed with the supplier).  
-To do this, there is a commented section in the ``btnCreatePayable_Click`` function, showing how to manually fill the ``Detail`` section of the Payable document. 
+To do this, there is a commented section in the ``btnCreatePayable_Click`` function, showing how to manually fill the ``Detail`` section of the Payable document.
+
+Whatever method is chosen, keep track, from the returned XML, of the ``PymtSchedId`` value, and of the ``InstallmentDate`` of the various installments: they will be needed to post the payments, in the next steps.
+
+## Step 3 - Posting the accouting payment entry
+At the right moment, it will be necessary to pay the Supplier. This involves both posting the payment entry to the accouting (i.e.: picking data from the bank) and closing the Payable, even partially (i.e.: pay the first installment).
+
+In this step, the accounting part of the payment is posted. The program allows to load an XML: the provided sample ``PureJEPaymentSample.xml`` is constructed to pay the first installment of the ``PurchaseDocJESample.xml`` sample, but it is possible to use custom XML.  
+The sample is based on the ``Tcpos_PureJe_Collections``, a lightweight standard profile suitable for this kind of operations.
+
+After the document is posted via ``SetData``, the complete XML of the new accounting document is returned (if successful). The value of some fields, such as the ``JournalEntryId``, are extracted from the XML. They are needed for the next step.
+
+## Step 4 - Closing one installment of the Payable document
+In this step the Payable document created in Step 2 is updated by adding the closing line corresponding to the payment made.  
+The code is in the ``btnClosePayable_Click`` function.
+
+To add the line the Payable Document is retrieved by its ID (``PymtSchedId``) and a line is added to its ``Detail`` section. Please note the use of the attribute ``updateType='OnlyInsert'`` in the ``Detail`` node: this instructs MagicLink to add lines to the existing ones, otherwise the entire body would be overwritten.
+
+Some data come from the Journal Entry just posted: the date, the amount, and most of all the ``JournalEntryID`` that will connect the closing line with the accounting entry.  
+Some other have to be retained from the original invoice posting: the Payable Document ID and the original due date of the installment to close (required, as it is used in several reports).
+
+Some remarks:
+* the ``InstallmentNo`` has to be set to the number of the installment to close. It is not required to close the instalments in any order.
+* the ``InstallmentDate`` can be any date, it doesn't have to match the original due date.
+* the ``PaymentTerm`` can be any suitable value, and do not have to match those of the installment to close. It is allowed to have an installment expecting, say, Bank Payment and close it with cash. In the example the value ``2686976`` means "Cash".
+* the ``Amount`` can be equal or smaller of the installment amount. If the closing lines matches the amount of the original installment, it will be considered closed. 
 
 ## Installing the custom profiles
 The `Basic` profiles are included in version 3.5 and above. If you want to use this sample with a Mago4 release 3.4, you must install them as custom ones.    
