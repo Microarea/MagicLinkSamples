@@ -193,6 +193,8 @@ namespace PurchaseDocJE_AP_AR
                         <maxs:TaxAmount>{TaxAmount}</maxs:TaxAmount>
                         <maxs:JournalEntryId>{JournalEntryID}</maxs:JournalEntryId>
                         <maxs:LogNo>{LogNo}</maxs:LogNo>
+                        <maxs:CRRefType>27066420</maxs:CRRefType>
+                        <maxs:CRRefID>{JournalEntryID}</maxs:CRRefID>
                     </maxs:AP_AR>
                 </maxs:Data>
             </maxs:Payables>");

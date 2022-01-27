@@ -57,6 +57,11 @@ The second step is create the Payable document, which contains the payment due d
 This is done by posting the Payable document, using the ``Basic`` profile, by filling all the required data equal to those of the Accounting Purchase invoice just posted.  
 It is important to set the ``JournalEntryID`` (primary key of the Accounting Purchase invoice), so that the Payable will be connected to the accounting entry.
 
+Some remarks:
+* ``DocumentDate`` is considered to be the starting date for calculate the installments. If you want them to start from a different date, set the ``InstallmStartDate`` field.
+* ``TotalAmount`` and ``TaxAmount`` are the basis for the installments calculation. ``TaxAmount`` is required as some payment terms require to pay the VAT on the first installment. 
+* ``CRRefType`` is set to ``27066420`` (accounting received document) and ``CRRefID`` to the accounting entry ID: this will populate the Cross References to easy the navigation between the documents.
+
 Please note that the installments can be generated in different ways:
 * setting the ``Payment`` node with a valid payment term code will automatically create the corresponding installments in the payable. 
 * omitting the ``Payment`` node will let Mago4 use the standard payment method of the supplier, and create the corresponding installments.
