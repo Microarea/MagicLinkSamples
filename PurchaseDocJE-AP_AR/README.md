@@ -52,7 +52,7 @@ After the document is posted via ``SetData``, the complete XML of the new accoun
 ## Step 2 - Creating the Payable document and connecting it to the accounting one
 The second step is create the Payable document, which contains the payment due dates and amounts, and connect it to the previously created accounting document. This will allow to correctly manage the further accounting operations (i.e: paying the supplier).
 
-This is done by posting the Payable document, using a suitable simple profile, by filling all the required data equal to those of the Accounting Purchase invoice just posted.  
+This is done by posting the Payable document, using the ``Basic`` profile, by filling all the required data equal to those of the Accounting Purchase invoice just posted.  
 It is important to set the ``JournalEntryID`` (primary key of the Accounting Purchase invoice), so that the Payable will be connected to the accounting entry.
 
 Please note that the installments can be generated in different ways:
@@ -68,3 +68,5 @@ Copy the ``Applications`` folder inside the ``profiles`` in the following folder
     [Mago installation folder]Custom\Companies\[company name] 
 ```
 The Mago installation folder usually is ``C:\Program Files (x86)\Mago4``.
+
+Adjust all the XML files provided in the sample, and the XML fragments included in the code, changing all the occurrences of ``/Standard/`` with ``/AllUsers/``
