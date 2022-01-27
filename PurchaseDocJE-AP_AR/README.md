@@ -2,6 +2,8 @@
 This sample program demonstrates how:
 * create an Accounting Received document
 * create the Payable document and attach it to the accounting document
+* post in accounting the payment of one installment of the purchase invoice
+* close the installment in the Payable document, and attach it to the accounting entry
 
 The installments of the Payable document can be created:
 * according to the standard payment method associated to the Supplier
