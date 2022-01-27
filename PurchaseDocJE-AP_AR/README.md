@@ -71,7 +71,7 @@ To do this, there is a commented section in the ``btnCreatePayable_Click`` funct
 Whatever method is chosen, keep track, from the returned XML, of the ``PymtSchedId`` value, and of the ``InstallmentDate`` of the various installments: they will be needed to post the payments, in the next steps.
 
 ## Step 3 - Posting the accouting payment entry
-At the right moment, it will be necessary to pay the Supplier. This involves both posting the payment entry to the accouting (i.e.: picking data from the bank) and closing the Payable, even partially (i.e.: pay the first installment).
+At the right moment, it will be necessary to pay the Supplier. This involves both posting the payment entry to the accounting (i.e.: picking data from the bank) and closing the Payable, even partially (i.e.: pay the first installment).
 
 In this step, the accounting part of the payment is posted. The program allows to load an XML: the provided sample ``PureJEPaymentSample.xml`` is constructed to pay the first installment of the ``PurchaseDocJESample.xml`` sample, but it is possible to use custom XML.  
 The sample is based on the ``Tcpos_PureJe_Collections``, a lightweight standard profile suitable for this kind of operations.
