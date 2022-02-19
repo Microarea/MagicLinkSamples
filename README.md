@@ -3,7 +3,7 @@ This repository contains a collection of samples about connecting to Mago4 throu
 Some of them are organized as step-by-step samples, others provide ready to use code with comments about how it is organized.
 
 ## YourFirstMagicLinkApp
-This step-by-step example shows how create a sample application which integrates to Mago4 via MagicLink.
+This step-by-step example shows how to create a simple application which integrates to Mago4 via MagicLink.
 
 ## MagicLink-CGM
 This step-by-step example shows how to create an application that manage the connection with a Mago4 using the CGM module (Corporate Group Management, many fiscal companies hosted in a single database)
