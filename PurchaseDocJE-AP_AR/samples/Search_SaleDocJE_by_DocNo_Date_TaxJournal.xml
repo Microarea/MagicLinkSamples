@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<maxs:SaleDocJE tbNamespace="Document.ERP.Accounting.Documents.SaleDocJE" xTechProfile="TcPos_SaleDocJE" xmlns:maxs="http://www.microarea.it/Schema/2004/Smart/ERP/Accounting/SaleDocJE/Standard/TcPos_SaleDocJE.xsd">
+    <maxs:Parameters>
+        <maxs:DefaultDialog title="Ricerca campi">
+            <maxs:DefaultGroup title="Gruppo di ricerca">
+	            <maxs:TaxJournal>VEN</maxs:TaxJournal>
+	            <maxs:DocumentDate>2021-12-20</maxs:DocumentDate>
+	            <maxs:DocNo>000037</maxs:DocNo>
+            </maxs:DefaultGroup>
+        </maxs:DefaultDialog>
+    </maxs:Parameters>
+</maxs:SaleDocJE>

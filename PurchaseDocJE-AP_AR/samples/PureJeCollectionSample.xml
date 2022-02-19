@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<maxs:PureJE tbNamespace="Document.ERP.Accounting.Documents.PureJE" xTechProfile="Tcpos_PureJe_Collections" xmlns:maxs="http://www.microarea.it/Schema/2004/Smart/ERP/Accounting/PureJE/Standard/Tcpos_PureJe_Collections.xsd">
+  <maxs:Data>
+    <maxs:JournalEntries master="true">
+      <maxs:AccTpl>INC</maxs:AccTpl>
+      <maxs:PostingDate>2021-12-16</maxs:PostingDate>
+      <maxs:DocumentDate>2021-12-16</maxs:DocumentDate>
+    </maxs:JournalEntries>
+    <maxs:GLJournal>
+      <maxs:GLJournalRow>
+        <maxs:Line>1</maxs:Line>
+        <maxs:AccRsn>INCASSO</maxs:AccRsn>
+        <maxs:Account>01011000</maxs:Account>
+        <maxs:AmountType>6356992</maxs:AmountType>
+        <maxs:CustSuppType>3211264</maxs:CustSuppType>
+        <maxs:CustSupp>0001</maxs:CustSupp>
+        <maxs:DebitCreditSign>4980737</maxs:DebitCreditSign>
+        <maxs:Amount>244.00</maxs:Amount>
+      </maxs:GLJournalRow>
+      <maxs:GLJournalRow>
+        <maxs:Line>2</maxs:Line>
+        <maxs:AccRsn>INCASSO</maxs:AccRsn>
+        <maxs:Account>02011001</maxs:Account>
+        <maxs:AmountType>6356992</maxs:AmountType>
+        <maxs:DebitCreditSign>4980736</maxs:DebitCreditSign>
+        <maxs:Amount>244.00</maxs:Amount>
+      </maxs:GLJournalRow>
+    </maxs:GLJournal>
+  </maxs:Data>
+</maxs:PureJE>

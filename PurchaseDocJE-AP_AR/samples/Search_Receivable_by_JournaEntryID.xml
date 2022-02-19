@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<maxs:Receivables tbNamespace="Document.ERP.AP_AR.Documents.Receivables" xTechProfile="Tcpos_Receivables" xmlns:maxs="http://www.microarea.it/Schema/2004/Smart/ERP/AP_AR/Receivables/Standard/Tcpos_Receivables.xsd">
+    <maxs:Parameters>
+        <maxs:DefaultDialog title="Ricerca campi">
+            <maxs:DefaultGroup title="Gruppo di ricerca">
+                <maxs:JournalEntryId>274</maxs:JournalEntryId>
+            </maxs:DefaultGroup>
+        </maxs:DefaultDialog>
+    </maxs:Parameters>
+</maxs:Receivables>

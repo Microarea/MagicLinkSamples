@@ -1,0 +1,10 @@
+<maxs:Payables tbNamespace="Document.ERP.AP_AR.Documents.Payables" xTechProfile="Basic" xmlns:maxs="http://www.microarea.it/Schema/2004/Smart/ERP/AP_AR/Payables/AllUsers/Basic.xsd">
+    <maxs:Parameters>
+        <maxs:DefaultDialog title="Ricerca campi">
+            <maxs:DefaultGroup title="Gruppo di ricerca">
+                <maxs:DocNo>ABC-000-X-456</maxs:DocNo>
+                <maxs:DocumentDate>2021-10-28</maxs:DocumentDate>
+            </maxs:DefaultGroup>
+        </maxs:DefaultDialog>
+    </maxs:Parameters>
+</maxs:Payables>
