@@ -1,4 +1,4 @@
-# Your First MagcLink application
+# Your First MagicLink application
 
 In this walkthrough, we will see how to create a very simple, yet working, application which make use of MagicLink to post data into Mago4.  
 This application is not able to perform any meaningful task, but its purpose is just demonstrating the basic principles of interfacing an application with Mago4 via MagicLink. 
